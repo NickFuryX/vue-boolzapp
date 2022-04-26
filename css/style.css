@@ -97,15 +97,49 @@ body {
   margin-left: 10px;
 }
 
-.text-noti-up{
+.text-noti-up {
   font-weight: 500;
 }
 
-.text-noti-down{
+.text-noti-down {
   font-size: 13px;
   color: grey;
   text-decoration: underline;
   cursor: pointer;
 }
+
+.search-bar {
+  width: 95%;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 18%;
+  border: 1px solid rgb(231, 230, 230);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: white;
+}
+.text-search {
+  width: 82%;
+  border: 1px solid rgb(231, 230, 230);
+  height: 15%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+.search-bar .fa-solid{
+  margin-right: 0px!important;
+}
+
 
 /* //-------------------------------------------------------// */
