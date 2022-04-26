@@ -11,19 +11,43 @@
       crossorigin="anonymous"
     />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <title>Boolzapp</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <main class="main-box" id="main">
-
+      <div class="left-box">
+        <div class="top-user-bar">
+          <div class="user">
+            <img src="img/avatar_io.jpg" alt="mio-avatar" />
+            <span>Sofia</span>
+          </div>
+          <div class="user-icon me-2">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </div>
+        <div class="notification-alert">
+          <div><i class="fa-solid fa-bell-slash"></i></div>
+          <div class="notification-text-box">
+            <div class="text-noti-up">Ricevi notifice di nuovi messaggi</div>
+            <div class="text-noti-down">Attiva notiche desktop</div>
+          </div>
+        </div>
+        <div class="search-bar"></div>
+        <div class="contact-box"></div>
+      </div>
+      <div class="right-box"></div>
     </main>
-    
-
-
-
-
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

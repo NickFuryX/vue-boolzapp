@@ -1,7 +1,6 @@
 const vueScript = new Vue({
     el:"main",
-    contatti: 
-    {
+    contatti: [ {
         name: 'Michele',
         avatar: '_1',
         visible: true,
@@ -161,7 +160,10 @@ const vueScript = new Vue({
                 status: 'received'
             }
         ],
-    },
+    }
+]
+    
 
 })
+
 
