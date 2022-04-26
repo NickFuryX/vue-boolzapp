@@ -45,13 +45,37 @@
         </div>
         <div class="search-bar">
           <button class="search-button">
-            <i class="fa-solid fa-magnifying-glass "></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-          <input type="text" class="text-search" placeholder="Cerca o inizia una nuova chat">
+          <input
+            type="text"
+            class="text-search"
+            placeholder="Cerca o inizia una nuova chat"
+          />
         </div>
-        <div class="contact-box"></div>
+        <div class="contact-box">
+          <!-- card static -->
+          <div v-for="(item, index) in contatti">
+            <div class="user-chat">
+              <div class="user">
+                <!-- <img src="img/avatar_1.jpg" > -->
+                <img :src='"img/avatar" + item.avatar + ".jpg"'  alt="">
+                <div class="ms-3">
+                  <div class="contact-name">{{item.name}}</div>
+                  <div class="contact-message-send">{{item.messages[0].message}}</div>
+                </div>
+              </div>
+              <div class="orario">
+                12:00
+              </div>
+            </div>
+          </div>
+          <!-- // fine card static -->
+        </div>
       </div>
-      <div class="right-box"></div>
+      <div class="right-box">
+        
+      </div>
     </main>
 
     <script
