@@ -6,7 +6,7 @@ const vueScript = new Vue({
         id: "1",
         name: "Michele",
         avatar: "_1",
-        visible: false,
+        visible: true,
         messages: [
           {
             date: "10/01/2020 15:30:55",
@@ -199,7 +199,7 @@ const vueScript = new Vue({
     },
     userSearch(){
       this.contatti.forEach((item) => {
-        if(item.name.includes(this.ricercaUtente)){
+        if(item.name.toLowerCase().includes(this.ricercaUtente.toLowerCase())){
           item.visible = true
         } else {
           item.visible = false

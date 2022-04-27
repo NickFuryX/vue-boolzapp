@@ -58,7 +58,7 @@
         <div class="contact-box">
           <!-- card static -->
           <div v-for="(item, index) in contatti">
-            <div class="user-chat" :class="{'user-chat-active' : activeContactIndex === index}" @click="currentContact(index)">
+            <div v-if="item.visible" class="user-chat" :class="{'user-chat-active' : activeContactIndex === index}" @click="currentContact(index)">
               <div class="user">
                 <!-- <img src="img/avatar_1.jpg" > -->
                 <img :src='"img/avatar" + item.avatar + ".jpg"' alt="" />
