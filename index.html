@@ -59,6 +59,7 @@
           <!-- card static -->
           <div v-for="(item, index) in contatti">
             <div v-if="item.visible" class="user-chat" :class="{'user-chat-active' : activeContactIndex === index}" @click="currentContact(index)">
+              
               <div class="user">
                 <!-- <img src="img/avatar_1.jpg" > -->
                 <img :src='"img/avatar" + item.avatar + ".jpg"' alt="" />
@@ -91,7 +92,14 @@
           </div>
         </div>
         <div class="conversation-box">
-          <div v-for="(item, index) in contatti[activeContactIndex].messages" :class="item.status === 'sent' ? 'sent' : 'received'">{{item.message}}</div>
+          <div v-for="(item, index) in contatti[activeContactIndex].messages" :class="item.status === 'sent' ? 'sent' : 'received'">{{item.message}}
+            <div class="sent-chevron"><i class="fa-solid fa-chevron-down">
+              <div class="menu-mex">
+                <div class="mb-4" >Info messaggio</div>
+                <div @click="deleteMex(index)" > Elimina messaggio</div>
+              </div>
+            </i></div>
+          </div>
         </div>
         <div class="message-box">
           <i class="fa-regular fa-face-smile"></i>

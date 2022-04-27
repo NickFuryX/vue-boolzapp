@@ -191,24 +191,26 @@ const vueScript = new Vue({
       setTimeout(() => {
         const newResponsMessage = {
           date: "10/01/2020 15:00",
-          message: 'Okok',
+          message: "Okok",
           status: "received",
         };
         this.contatti[this.activeContactIndex].messages.push(newResponsMessage);
       }, 2000);
     },
-    userSearch(){
+    userSearch() {
       this.contatti.forEach((item) => {
-        if(item.name.toLowerCase().includes(this.ricercaUtente.toLowerCase())){
-          item.visible = true
+        if (
+          item.name.toLowerCase().includes(this.ricercaUtente.toLowerCase())
+        ) {
+          item.visible = true;
         } else {
-          item.visible = false
+          item.visible = false;
         }
-        
       });
-      
-    }
-
+    },
+    deleteMex(index) {
+       
+      this.contatti[this.activeContactIndex].messages.splice(index, 1);
+    },
   },
-
 });

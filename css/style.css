@@ -211,6 +211,7 @@ body {
   margin-left: 40px;
   float: left;
   clear: both;
+  position: relative;
 }
 
 .sent {
@@ -225,4 +226,36 @@ body {
   background-color: rgb(204 245 175);
   clear: both;
   text-align: start;
+  position: relative;
+}
+
+.sent-chevron{
+  position: absolute;
+  top: 0;
+  right: 4px;
+  display: none;
+}
+
+.sent-chevron .fa-solid{
+  margin-right: 0!important;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.received:hover .sent-chevron{
+  display: block;
+}
+.sent:hover .sent-chevron{
+  display: block;
+}
+
+.menu-mex{
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  font-size: 12px;
+  font-family: var(--bs-font-sans-serif);
+  font-weight: normal;
+  width: 150px;
+  z-index: 10;
 }
