@@ -56,17 +56,17 @@
         <div class="contact-box">
           <!-- card static -->
           <div v-for="(item, index) in contatti">
-            <div class="user-chat">
+            <div class="user-chat" :class="{'user-chat-active' : activeContactIndex === index}">
               <div class="user">
                 <!-- <img src="img/avatar_1.jpg" > -->
-                <img :src='"img/avatar" + item.avatar + ".jpg"'  alt="">
+                <img :src='"img/avatar" + item.avatar + ".jpg"' alt="" />
                 <div class="ms-3">
                   <div class="contact-name">{{item.name}}</div>
-                  <div class="contact-message-send">{{item.messages[0].message}}</div>
+                  <div class="contact-message-send">
+                    {{item.messages[0].message}}
+                  </div>
                 </div>
-              </div>
-              <div class="orario">
-                12:00
+                <div class="orario">12:00</div>
               </div>
             </div>
           </div>
@@ -74,7 +74,32 @@
         </div>
       </div>
       <div class="right-box">
-        
+        <div class="top-user-bar">
+          <div class="user">
+            <img
+              :src='"img/avatar" + contatti[activeContactIndex].avatar + ".jpg"'
+              alt="mio-avatar"
+            />
+            <span>{{contatti[activeContactIndex].name}}</span>
+          </div>
+          <div class="user-icon me-2">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-paperclip"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </div>
+        <div class="conversation-box">
+          <div v-for="(item, index) in contatti[activeContactIndex].messages" :class="item.status === 'sent' ? 'sent' : 'received'">{{item.message}}</div>
+        </div>
+        <div class="message-box">
+          <i class="fa-regular fa-face-smile"></i>
+          <input
+            class="my-msg-box"
+            type="text"
+            placeholder=" Scrivi un messaggio"
+          />
+          <i class="fa-solid fa-microphone"></i>
+        </div>
       </div>
     </main>
 

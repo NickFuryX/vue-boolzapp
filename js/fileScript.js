@@ -3,6 +3,7 @@ const vueScript = new Vue({
   data: {
     contatti: [
       {
+        id: '1',
         name: "Michele",
         avatar: "_1",
         visible: true,
@@ -25,6 +26,7 @@ const vueScript = new Vue({
         ],
       },
       {
+        id: '2',
         name: "Fabio",
         avatar: "_2",
         visible: true,
@@ -47,6 +49,7 @@ const vueScript = new Vue({
         ],
       },
       {
+        id: '3',
         name: "Samuele",
         avatar: "_3",
         visible: true,
@@ -69,6 +72,7 @@ const vueScript = new Vue({
         ],
       },
       {
+        id: '4',
         name: "Alessandro B.",
         avatar: "_4",
         visible: true,
@@ -86,6 +90,7 @@ const vueScript = new Vue({
         ],
       },
       {
+        id: '5',
         name: "Alessandro L.",
         avatar: "_5",
         visible: true,
@@ -103,6 +108,7 @@ const vueScript = new Vue({
         ],
       },
       {
+        id: '6',
         name: "Claudia",
         avatar: "_6",
         visible: true,
@@ -125,6 +131,7 @@ const vueScript = new Vue({
         ],
       },
       {
+        id: '7',
         name: "Federico",
         avatar: "_7",
         visible: true,
@@ -142,6 +149,7 @@ const vueScript = new Vue({
         ],
       },
       {
+        id: '8',
         name: "Davide",
         avatar: "_8",
         visible: true,
@@ -164,5 +172,11 @@ const vueScript = new Vue({
         ],
       },
     ],
+    activeContactIndex: 0,
   },
+  methods: {
+    
+  }
+  
+   
 });
