@@ -6,7 +6,7 @@ const vueScript = new Vue({
         id: "1",
         name: "Michele",
         avatar: "_1",
-        visible: true,
+        visible: false,
         messages: [
           {
             date: "10/01/2020 15:30:55",
@@ -174,6 +174,7 @@ const vueScript = new Vue({
     ],
     activeContactIndex: 0,
     newMex: "",
+    ricercaUtente: "",
   },
   methods: {
     currentContact(index) {
@@ -196,5 +197,18 @@ const vueScript = new Vue({
         this.contatti[this.activeContactIndex].messages.push(newResponsMessage);
       }, 2000);
     },
+    userSearch(){
+      this.contatti.forEach((item) => {
+        if(item.name.includes(this.ricercaUtente)){
+          item.visible = true
+        } else {
+          item.visible = false
+        }
+        
+      });
+      
+    }
+
   },
+
 });

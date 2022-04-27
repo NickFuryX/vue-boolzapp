@@ -51,6 +51,8 @@
             type="text"
             class="text-search"
             placeholder="Cerca o inizia una nuova chat"
+            v-model="ricercaUtente"
+            @keyup="userSearch()"
           />
         </div>
         <div class="contact-box">
