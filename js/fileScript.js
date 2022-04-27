@@ -173,23 +173,28 @@ const vueScript = new Vue({
       },
     ],
     activeContactIndex: 0,
-    newMex: '',
-    
-
+    newMex: "",
   },
   methods: {
     currentContact(index) {
       this.activeContactIndex = index;
     },
-    sendMessage(){
+    sendMessage() {
       const newMessage = {
         date: "10/01/2020 15:00",
         message: this.newMex,
-        status: "sent"
-      }
+        status: "sent",
+      };
       this.contatti[this.activeContactIndex].messages.push(newMessage);
-
-
+      this.newMex = "";
+      setTimeout(() => {
+        const newResponsMessage = {
+          date: "10/01/2020 15:00",
+          message: 'Okok',
+          status: "received",
+        };
+        this.contatti[this.activeContactIndex].messages.push(newResponsMessage);
+      }, 2000);
     },
   },
 });
