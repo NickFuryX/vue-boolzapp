@@ -178,6 +178,8 @@ body {
 .conversation-box {
   max-width: 100%;
   height: 83%;
+  overflow-y: scroll;
+
 }
 
 .message-box {

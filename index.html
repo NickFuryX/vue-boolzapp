@@ -11,6 +11,8 @@
       crossorigin="anonymous"
     />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -58,8 +60,12 @@
         <div class="contact-box">
           <!-- card static -->
           <div v-for="(item, index) in contatti">
-            <div v-if="item.visible" class="user-chat" :class="{'user-chat-active' : activeContactIndex === index}" @click="currentContact(index)">
-              
+            <div
+              v-if="item.visible"
+              class="user-chat"
+              :class="{'user-chat-active' : activeContactIndex === index}"
+              @click="currentContact(index)"
+            >
               <div class="user">
                 <!-- <img src="img/avatar_1.jpg" > -->
                 <img :src='"img/avatar" + item.avatar + ".jpg"' alt="" />
@@ -69,7 +75,7 @@
                     {{item.messages[0].message}}
                   </div>
                 </div>
-                <div class="orario">12:00</div>
+                <div class="orario">{{item.messages[0].date}}</div>
               </div>
             </div>
           </div>
@@ -92,13 +98,19 @@
           </div>
         </div>
         <div class="conversation-box">
-          <div v-for="(item, index) in contatti[activeContactIndex].messages" :class="item.status === 'sent' ? 'sent' : 'received'">{{item.message}}
-            <div class="sent-chevron"><i class="fa-solid fa-chevron-down">
-              <div class="menu-mex">
-                <div class="mb-4" >Info messaggio</div>
-                <div @click="deleteMex(index)" > Elimina messaggio</div>
-              </div>
-            </i></div>
+          <div
+            v-for="(item, index) in contatti[activeContactIndex].messages"
+            :class="item.status === 'sent' ? 'sent' : 'received'"
+          >
+            {{item.message}}
+            <div class="sent-chevron">
+              <i class="fa-solid fa-chevron-down">
+                <div class="menu-mex">
+                  <div class="mb-4">Info messaggio</div>
+                  <div @click="deleteMex(index)">Elimina messaggio</div>
+                </div>
+              </i>
+            </div>
           </div>
         </div>
         <div class="message-box">
