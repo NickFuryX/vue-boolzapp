@@ -3,7 +3,7 @@ const vueScript = new Vue({
   data: {
     contatti: [
       {
-        id: '1',
+        id: "1",
         name: "Michele",
         avatar: "_1",
         visible: true,
@@ -26,7 +26,7 @@ const vueScript = new Vue({
         ],
       },
       {
-        id: '2',
+        id: "2",
         name: "Fabio",
         avatar: "_2",
         visible: true,
@@ -49,7 +49,7 @@ const vueScript = new Vue({
         ],
       },
       {
-        id: '3',
+        id: "3",
         name: "Samuele",
         avatar: "_3",
         visible: true,
@@ -72,7 +72,7 @@ const vueScript = new Vue({
         ],
       },
       {
-        id: '4',
+        id: "4",
         name: "Alessandro B.",
         avatar: "_4",
         visible: true,
@@ -90,7 +90,7 @@ const vueScript = new Vue({
         ],
       },
       {
-        id: '5',
+        id: "5",
         name: "Alessandro L.",
         avatar: "_5",
         visible: true,
@@ -108,7 +108,7 @@ const vueScript = new Vue({
         ],
       },
       {
-        id: '6',
+        id: "6",
         name: "Claudia",
         avatar: "_6",
         visible: true,
@@ -131,7 +131,7 @@ const vueScript = new Vue({
         ],
       },
       {
-        id: '7',
+        id: "7",
         name: "Federico",
         avatar: "_7",
         visible: true,
@@ -149,7 +149,7 @@ const vueScript = new Vue({
         ],
       },
       {
-        id: '8',
+        id: "8",
         name: "Davide",
         avatar: "_8",
         visible: true,
@@ -173,10 +173,23 @@ const vueScript = new Vue({
       },
     ],
     activeContactIndex: 0,
+    newMex: '',
+    
+
   },
   methods: {
-    
-  }
-  
-   
+    currentContact(index) {
+      this.activeContactIndex = index;
+    },
+    sendMessage(){
+      const newMessage = {
+        date: "10/01/2020 15:00",
+        message: this.newMex,
+        status: "sent"
+      }
+      this.contatti[this.activeContactIndex].messages.push(newMessage);
+
+
+    },
+  },
 });

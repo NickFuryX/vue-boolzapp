@@ -56,7 +56,7 @@
         <div class="contact-box">
           <!-- card static -->
           <div v-for="(item, index) in contatti">
-            <div class="user-chat" :class="{'user-chat-active' : activeContactIndex === index}">
+            <div class="user-chat" :class="{'user-chat-active' : activeContactIndex === index}" @click="currentContact(index)">
               <div class="user">
                 <!-- <img src="img/avatar_1.jpg" > -->
                 <img :src='"img/avatar" + item.avatar + ".jpg"' alt="" />
@@ -97,6 +97,8 @@
             class="my-msg-box"
             type="text"
             placeholder=" Scrivi un messaggio"
+            v-model="newMex"
+            @keyup.enter="sendMessage"
           />
           <i class="fa-solid fa-microphone"></i>
         </div>
