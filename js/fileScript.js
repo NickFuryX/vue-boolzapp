@@ -180,20 +180,43 @@ const vueScript = new Vue({
     currentContact(index) {
       this.activeContactIndex = index;
     },
+    // displayArrow(){
+    //   if(this.newMex !== ''){
+    //     document.querySelector('.fa-solid .fa-microphone').classList.remove('d-none')
+
+    //   }else{
+    //     document.querySelector('.fa-solid .fa-microphone').classList.add('d-none')
+
+    //   }
+
+    // },
     sendMessage() {
-      if (this.newMex !== "") {
+      let randomReplies = [
+        "Non posso rispondere",
+        "Okok",
+        "Ti chiamo dopo",
+        "Non ho capito",
+        "Come dici?",
+        "Ti rispondo subito",
+        "Ci sentiamo presto",
+        "Ciao!",
+        "Chiamami",
+      ];
+      if (this.newMex.trim() !== "") {
         const newMessage = {
           date: dayjs().format("HH:mm:ss DD/MM/YYYY"),
           message: this.newMex,
           status: "sent",
         };
         console.log(newMessage);
+        console.log(this.newMex);
         this.contatti[this.activeContactIndex].messages.push(newMessage);
         this.newMex = "";
         setTimeout(() => {
           const newResponsMessage = {
             date: dayjs().format("HH:mm:ss DD/MM/YYYY"),
-            message: "Okok",
+            message:
+              randomReplies[Math.floor(Math.random() * randomReplies.length)],
             status: "received",
           };
           this.contatti[this.activeContactIndex].messages.push(
@@ -216,7 +239,11 @@ const vueScript = new Vue({
       });
     },
     deleteMex(index) {
-      this.contatti[this.activeContactIndex].messages.splice(index, 1);
+      if (this.contatti[this.activeContactIndex].messages.length > 0) {
+        this.contatti[this.activeContactIndex].messages.splice(index, 1);
+      } else {
+        return;
+      }
     },
   },
 });

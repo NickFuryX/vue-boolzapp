@@ -72,10 +72,13 @@
                 <div class="ms-3">
                   <div class="contact-name">{{item.name}}</div>
                   <div class="contact-message-send">
-                    {{item.messages[0].message}}
+                    {{item.messages.length > 0 ? item.messages.at(-1).message :
+                    ''}}
                   </div>
                 </div>
-                <div class="orario">{{item.messages[0].date}}</div>
+                <div class="orario">
+                  {{item.messages.length > 0 ? item.messages.at(-1).date : ''}}
+                </div>
               </div>
             </div>
           </div>
@@ -89,12 +92,25 @@
               :src='"img/avatar" + contatti[activeContactIndex].avatar + ".jpg"'
               alt="mio-avatar"
             />
-            <span>{{contatti[activeContactIndex].name}}</span>
+            <div
+              class="d-flex flex-column justify-content-start align-items-start"
+            >
+              <span>{{contatti[activeContactIndex].name}}</span>
+              <span
+                >Ultimo accesso :
+                {{contatti[activeContactIndex].messages.at(-1).date}}</span
+              >
+            </div>
           </div>
           <div class="user-icon me-2">
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-solid fa-paperclip"></i>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
+            <i class="fa-solid fa-ellipsis-vertical">
+              <div class="menu-mex">
+                <div @click="deleteAllMex(index)" class="mb-4">Elimina i messaggi</div>
+                <div @click="deleteConversation(index)">Elimina conversazione</div>
+              </div>
+            </i>
           </div>
         </div>
         <div class="conversation-box">
@@ -103,6 +119,7 @@
             :class="item.status === 'sent' ? 'sent' : 'received'"
           >
             {{item.message}}
+            <div class="mex-time">{{item.date}}</div>
             <div class="sent-chevron">
               <i class="fa-solid fa-chevron-down">
                 <div class="menu-mex">
@@ -122,6 +139,8 @@
             v-model="newMex"
             @keyup.enter="sendMessage"
           />
+          <i class="fa-solid fa-arrow-up" @click="sendMessage"> </i>
+
           <i class="fa-solid fa-microphone"></i>
         </div>
       </div>
